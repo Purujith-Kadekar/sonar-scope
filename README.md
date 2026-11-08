@@ -12,7 +12,7 @@ Black Pill --SPI--> MCP4921 --> Sallen-Key LPF --> 1k + Schottky clamp --> Nucle
  (pots, button)      (DAC)       (op-amp)                                  (ADC 1.5 MS/s -> TFT)
 ```
 
-![Complete setup: Black Pill transmitter on the left, Nucleo F446RE with TFT on the breadboard, and a close-up of the TFT display](docs/media/full_setup.png)
+![Complete setup: Black Pill transmitter on the left, Nucleo F446RE with TFT on the breadboard, and a close-up of the TFT display](docs/media/full_setup_annotated.png)
 
 *Complete bench setup. The Black Pill transmitter (left) with its three pots, and the Nucleo F446RE with the TFT and rotary encoder (right). The inset is a close-up of the TFT.*
 
