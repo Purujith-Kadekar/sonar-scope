@@ -12,6 +12,10 @@ Black Pill --SPI--> MCP4921 --> Sallen-Key LPF --> 1k + Schottky clamp --> Nucle
  (pots, button)      (DAC)       (op-amp)                                  (ADC 1.5 MS/s -> TFT)
 ```
 
+![Complete setup: Black Pill transmitter on the left, Nucleo F446RE with TFT on the breadboard, and a close-up of the TFT display](docs/media/full_setup.png)
+
+*Complete bench setup. The Black Pill transmitter (left) with its three pots, and the Nucleo F446RE with the TFT and rotary encoder (right). The inset is a close-up of the TFT.*
+
 ## Repository layout
 
 ```
@@ -23,7 +27,7 @@ docs/
   circuit.md         filter and input-protection circuit
   troubleshooting.md common problems and fixes
   expo_notes.md      talking points for a demo or expo
-  media/             test videos
+  media/             setup photos and test videos
 ```
 
 ## Hardware
@@ -40,6 +44,10 @@ docs/
 | 1 kOhm resistor, 1 nF capacitor, 2 x BAT85 Schottky diodes | Nucleo input filter and clamp |
 
 Pin tables are in [docs/wiring.md](docs/wiring.md) and the circuits are in [docs/circuit.md](docs/circuit.md).
+
+<img src="docs/media/transmitter_board.png" alt="Black Pill transmitter board with three potentiometers in an enclosure" width="300">
+
+*Transmitter board: the Black Pill (STM32F411) with the three pots (bandwidth, pulse length, amplitude) in the enclosure.*
 
 ## Build and upload (Arduino IDE)
 
@@ -95,6 +103,10 @@ The wave is at the top with a grid. The bottom shows:
 
 Edit `WAVE_SPEED` in the receiver: 1500 m/s for water or 343 m/s for air.
 
+<img src="docs/media/nucleo_setup.png" alt="Nucleo scope display on a breadboard with the rotary encoder" width="300">
+
+*Receiver side: the TFT shows the captured wave on a grid with F, T, WL and Vpp below it. The rotary encoder is at the bottom of the photo.*
+
 ## How it works
 
 ### Transmitter
@@ -124,12 +136,12 @@ Bench test recordings are in [`docs/media/`](docs/media/).
 
 | Video | What it shows |
 |---|---|
-| [Test 1 - waveform capture](docs/media/test_01_waveform.mp4) | Receiver display showing the captured wave with F, T, WL and Vpp readings |
-| [Test 2 - encoder gain](docs/media/test_02_encoder_gain.mp4) | Rotary encoder changing the vertical gain on the scope |
+| [Test 1 - Nucleo display](docs/media/test_01_nucleo_display.mp4) | The Nucleo TFT showing a 10 kHz square wave from a DDS signal generator, with F, T, WL and Vpp readings |
+| [Test 2 - transmitter output](docs/media/test_02_transmitter_output.mp4) | The Black Pill transmitter output measured on a bench oscilloscope (GW Instek GDS-1102-U) |
 
-Test setup: transmitter on the Black Pill in `TEST_CW` mode (steady 10 kHz tone), filter output into Nucleo A0 through the 1 kOhm + clamp network. See [docs/circuit.md](docs/circuit.md).
+**Test 1 setup:** the signal generator is set to 10.000 kHz and feeds the Nucleo input through the 1 kOhm + clamp network (see [docs/circuit.md](docs/circuit.md)). The Nucleo reads about 9.83 kHz (period 101.7 us, wavelength 15.3 cm in water), roughly 1.7 % below the generator setting. The readings are not calibrated against a reference instrument.
 
-Expected readings in this mode: about 10.0 kHz, period about 100 us, wavelength about 15 cm in water.
+**Test 2 setup:** the bench scope is connected to the transmitter output and shows a sine wave of about 1.6 Vpp at about 11 kHz.
 
 ## Troubleshooting
 
