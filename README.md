@@ -124,8 +124,8 @@ Bench test recordings are in [`docs/media/`](docs/media/).
 
 | Video | What it shows |
 |---|---|
-| [Test 1 - waveform capture](docs/media/test_01.mp4) | Receiver display showing the captured wave with F, T, WL and Vpp readings |
-| [Test 2 - encoder gain](docs/media/test_02.mp4) | Rotary encoder changing the vertical gain on the scope |
+| [Test 1 - waveform capture](docs/media/test_01_waveform.mp4) | Receiver display showing the captured wave with F, T, WL and Vpp readings |
+| [Test 2 - encoder gain](docs/media/test_02_encoder_gain.mp4) | Rotary encoder changing the vertical gain on the scope |
 
 Test setup: transmitter on the Black Pill in `TEST_CW` mode (steady 10 kHz tone), filter output into Nucleo A0 through the 1 kOhm + clamp network. See [docs/circuit.md](docs/circuit.md).
 
